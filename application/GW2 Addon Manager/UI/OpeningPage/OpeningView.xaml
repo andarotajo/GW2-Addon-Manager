@@ -35,7 +35,7 @@
 
         <Label Grid.Row = "1" FontWeight="Bold" FontSize="60" Foreground="DimGray" Margin="30,0,0,0" FontFamily="Microsoft JhengHei UI Light" Width="Auto" HorizontalAlignment="Left" Content="GW2-UOAOM"/>
         <TextBlock Grid.Row="1" Margin="40,75,0,0" FontSize ="16" Foreground="DimGray" FontFamily="Microsoft YaHei UI Light" Text="Guild Wars 2 - Unofficial Add-On Manager"/>
-        <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="320,0,0,37" FontFamily="Microsoft YaHei UI Light" FontSize="14" Text="{x:Static l:StaticText.GamePath}"/>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="320,0,0,88" FontFamily="Microsoft YaHei UI Light" FontSize="14" Text="{x:Static l:StaticText.GamePath}"/>
         <TextBlock 
             Margin="170, 0, 0, -10"
             HorizontalAlignment="Left"
@@ -183,7 +183,7 @@
         <Button Name="SelectDirectoryBtn"
                 Click="SelectDirectoryBtn_OnClick"
                 Grid.Row="2"
-                Margin="785,0,0,9"
+                Margin="785,0,0,60"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 Content="{x:Static l:StaticText.SelectDirectory}"
@@ -194,11 +194,11 @@
                 FontFamily="Candara"
                 Height="25"
                 BorderBrush="LightGray"
-                Style="{StaticResource BigContentButton}"
+                Style="{StaticResource BigContentButton}" Width="109"
             />
         <TextBox Text="{Binding GamePath}"
                  Grid.Row="2"
-                 Margin="380,0,0,10"
+                 Margin="380,0,0,61"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Bottom"
                  Width="400"
@@ -243,14 +243,14 @@
             </StackPanel>
         </Border>
 
-        <Border Grid.Row="2" Width="450" Height="280" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="380,20,0,0" BorderThickness="1" BorderBrush="DimGray" Background="WhiteSmoke">
+        <Border Grid.Row="2" Width="450" Height="237" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="380,20,0,0" BorderThickness="1" BorderBrush="DimGray" Background="WhiteSmoke">
             <Grid>
-                <DockPanel Width="450" Height="280" HorizontalAlignment="Left">
+                <DockPanel Width="450" HorizontalAlignment="Left" Margin="0,0,-2,0">
                     <Label FontSize="13"
                            FontFamily="Microsoft YaHei UI"
                            DockPanel.Dock="Right"
                            Width="auto"
-                           Margin="0,10,0,0"
+                           Margin="0,10,0,61"
                            Padding="0,10,20,10"
                            Foreground="DimGray"
                            >
@@ -258,15 +258,15 @@
                             <TextBlock Text="{Binding DeveloperText}" FontFamily="Microsoft YaHei UI"/>
                         </Hyperlink>
                     </Label>
-                    <Label FontSize="13" FontFamily="Microsoft YaHei UI" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,10,0,0" Padding="10,10,0,10" Visibility="{Binding DeveloperVisibility}" Foreground="DimGray" Content="Developer: " FontWeight="Bold"/>
+                    <Label FontSize="13" FontFamily="Microsoft YaHei UI" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,10,0,61" Padding="10,10,0,10" Visibility="{Binding DeveloperVisibility}" Foreground="DimGray" Content="Developer: " FontWeight="Bold"/>
                 </DockPanel>
-                <StackPanel Width="450" Height="280" HorizontalAlignment="Left">
+                <StackPanel Width="450" HorizontalAlignment="Left" Margin="0,0,-2,0">
                     <Label FontSize="18" FontFamily="Microsoft YaHei UI" Margin="15,10,0,10" HorizontalAlignment="Left" Foreground="DimGray" Content="Description" FontWeight="Bold"/>
 
                     <TextBlock 
                         Name="descriptionTextBlock"
                         Width="450" 
-                        Height="220"
+                        Height="171"
                         Padding="20,0,20,20"
                         TextWrapping="Wrap"
                         FontFamily="Microsoft JhengHei UI Light"
@@ -284,7 +284,7 @@
                                             />
                                     </Storyboard>
                                 </BeginStoryboard>
-                                
+
                             </EventTrigger>
                         </TextBlock.Triggers>
                         <!--  -->
@@ -338,6 +338,35 @@
                 BorderBrush="#FFC9C9C9"
                 Style="{StaticResource BigContentButton}" FontWeight="Bold"
                 />
+        <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="320,0,0,35" FontFamily="Microsoft YaHei UI Light" FontSize="14" Text="Custom executable path"/>
+        <Button x:Name="SelectCustomExecutableBtn"
+            Click="SelectCustomExecutableBtn_OnClick"
+            Grid.Row="2"
+            Margin="785,0,0,7"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="Select Executable"
+            ToolTip="{x:Static l:StaticText.SelectDirectoryDescription}"
+            Background="#FF66A8C7"
+            Foreground="White"
+            FontSize="14"
+            FontFamily="Candara"
+            Height="25"
+            BorderBrush="LightGray"
+            Style="{StaticResource BigContentButton}"
+            />
+        <TextBox Text="{Binding CustomExecutable}"
+            Grid.Row="2"
+            Margin="380,0,0,8"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Width="400"
+            Height="23"
+            Background="LightGray"
+            BorderThickness="0"
+            FontSize="16"
+            FontFamily="Microsoft JhengHei Light"
+                 />
 
     </Grid>
 </Page>

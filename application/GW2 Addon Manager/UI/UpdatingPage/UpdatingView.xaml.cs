@@ -29,6 +29,7 @@ namespace GW2_Addon_Manager
             Task.Run(() => UpdateHelpers.UpdateAll());
 
             launchOnClose.IsChecked = _configurationManager.UserConfig.LaunchGame;
+            launchCustomOnClose.IsChecked = _configurationManager.UserConfig.LaunchCustomExecutable;
         }
 
         /***************************** Titlebar Window Drag *****************************/
@@ -59,6 +60,27 @@ namespace GW2_Addon_Manager
                                      MessageBoxImage.Error);
                 }
             }
+            else if ((bool)launchCustomOnClose.IsChecked)
+            {
+                string exe = _configurationManager.UserConfig.CustomExecutable;
+                try
+                {
+                    string arguments = "";
+                    if (exe.Contains("Blish"))
+                    {
+                        arguments = "-g 2";
+                    }
+
+                    Process.Start(exe, arguments);
+                }
+                catch (System.ComponentModel.Win32Exception)
+                {
+                    MessageBox.Show($"Unable to launch custom executable.",
+                                     "Unable to Launch Custom Executable",
+                                     MessageBoxButton.OK,
+                                     MessageBoxImage.Error);
+                }
+            }
 
             if (_configurationManager.UserConfig.LaunchGame != launchOnClose.IsChecked)
             {
@@ -66,6 +88,12 @@ namespace GW2_Addon_Manager
                 _configurationManager.SaveConfiguration();
             }
 
+            if (_configurationManager.UserConfig.LaunchCustomExecutable != launchCustomOnClose.IsChecked)
+            {
+                _configurationManager.UserConfig.LaunchCustomExecutable = (bool)launchCustomOnClose.IsChecked;
+                _configurationManager.SaveConfiguration();
+            }
+            
             Application.Current.Shutdown();
         }
 

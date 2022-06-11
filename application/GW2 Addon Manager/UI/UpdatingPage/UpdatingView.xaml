@@ -20,7 +20,7 @@
             </Setter>
         </Style>
     </Page.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -56,7 +56,7 @@
                  <TextBlock Text=" Companion Applications" FontFamily="Microsoft YaHei UI"/>
             </Hyperlink>
         </TextBlock>
-        
+
         <Label Grid.Row = "1" FontWeight="Bold" FontSize="60" Foreground="DimGray" Margin="30,0,0,0" FontFamily="Microsoft JhengHei UI Light" Width="Auto" HorizontalAlignment="Left">
             GW2-UOAOM
         </Label>
@@ -125,19 +125,9 @@
                     IsEnabled="{Binding CloseBtnEnabled}"
                     Style="{StaticResource BigContentButton}" FontWeight="Bold"
                     />
-            <CheckBox x:Name="launchOnClose"
-                      Content="Launch game when closing"
-                      Foreground="White"
-                      Grid.Row="2"
-                      Grid.Column="1"
-                      Grid.ColumnSpan="2"
-                      FontFamily="Microsoft YaHei UI"
-                      FontSize="14"
-                      VerticalAlignment="Center"
-                      VerticalContentAlignment="Center"
-                      Margin="5">
-            </CheckBox>
+            <RadioButton x:Name="launchCustomOnClose" Content="Launch custom executable when closing" HorizontalAlignment="Left" Margin="269,0,0,0" Grid.Row="1" Height="17" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" FontSize="14" Foreground="White"/>
+            <RadioButton x:Name="launchOnClose" Content="Launch game when closing" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="1" Height="17" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" FontSize="14" Foreground="White"/>
         </Grid>
-        
+
     </Grid>
 </Page>

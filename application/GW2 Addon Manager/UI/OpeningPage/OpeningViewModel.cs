@@ -192,6 +192,22 @@ namespace GW2_Addon_Manager
         private string _gamePath;
 
         /// <summary>
+        /// Content of the text box that contains the custom executable path.
+        /// </summary>
+        public string CustomExecutable
+        {
+            get => _customExecutable;
+            set
+            {
+                if (value == _customExecutable) return;
+                SetProperty(ref _customExecutable, value);
+
+                new Configuration(_configurationManager).SetCustomExecutable(_customExecutable);
+            }
+        }
+        private string _customExecutable;
+
+        /// <summary>
         /// A string that is assigned a value if there is an update available.
         /// </summary>
         public string UpdateAvailable
@@ -236,6 +252,7 @@ namespace GW2_Addon_Manager
             UpdateProgressVisibility = Visibility.Hidden;
 
             GamePath = _configurationManager.UserConfig.GamePath;
+            CustomExecutable = _configurationManager.UserConfig.CustomExecutable;
         }
         /// <summary>
         /// Fetches the only instance of the OpeningViewModel and creates it if it has not been initialized yet.

@@ -41,6 +41,23 @@ namespace GW2_Addon_Manager
         }
 
         /// <summary>
+        /// <c>SetCustomExecutable</c> sets the custom executable path to <paramref name="path"/> and records it in the configuration file.
+        /// </summary>
+        /// <param name="path">The custom executable path.</param>
+        public void SetCustomExecutable(string path)
+        {
+            try
+            {
+                Application.Current.Properties["custom_executable"] = path.Replace("\\", "\\\\");
+            }
+            catch (Exception)
+            { }
+
+            _configurationManager.UserConfig.CustomExecutable = path;
+            _configurationManager.SaveConfiguration();
+        }
+
+        /// <summary>
         /// <c>SetCulture</c> both sets the culture for the current application session to <paramref name="culture"/> and records it in the configuration file.
         /// </summary>
         /// <param name="culture"></param>

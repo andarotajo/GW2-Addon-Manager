@@ -12,7 +12,11 @@ namespace GW2_Addon_Manager.App.Configuration.Model
 
         public bool LaunchGame { get; set; }
 
+        public bool LaunchCustomExecutable { get; set; }
+
         public string GamePath { get; set; } = "C:\\Program Files\\Guild Wars 2";
+
+        public string CustomExecutable { get; set; }
 
         public string ExeName { get; set; }
 

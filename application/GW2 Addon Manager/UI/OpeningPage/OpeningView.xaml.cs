@@ -141,7 +141,15 @@ namespace GW2_Addon_Manager
             CommonFileDialogResult result = pathSelectionDialog.ShowDialog();
             if (result == (CommonFileDialogResult)1)
                 OpeningViewModel.GetInstance.GamePath = pathSelectionDialog.FileName;
-                
+        }
+
+        private void SelectCustomExecutableBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var pathSelectionDialog = new CommonOpenFileDialog();
+            pathSelectionDialog.IsFolderPicker = false;
+            CommonFileDialogResult result = pathSelectionDialog.ShowDialog();
+            if (result == (CommonFileDialogResult)1)
+                OpeningViewModel.GetInstance.CustomExecutable = pathSelectionDialog.FileName;
         }
     }
 }
